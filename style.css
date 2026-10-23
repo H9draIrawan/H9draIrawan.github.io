@@ -1,7 +1,265 @@
-@import "tailwindcss";
+:root {
+	color-scheme: light;
+	--ink: #172b27;
+	--muted: #53645e;
+	--paper: #f6f7f1;
+	--green: #176b55;
+	--mint: #cce9d8;
+	--coral: #f07856;
+	--line: rgba(23, 43, 39, 0.14);
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 5rem;
+}
 
 body {
 	margin: 0;
 	padding: 0;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+::selection {
+	background: var(--coral);
 	color: white;
+}
+
+header {
+	border-color: var(--line) !important;
+	background: rgba(246, 247, 241, 0.9) !important;
+	box-shadow: 0 1px 0 rgba(23, 43, 39, 0.04);
+}
+
+header nav > a:first-child {
+	color: var(--green) !important;
+}
+
+header nav div a {
+	color: var(--ink);
+}
+
+header nav a:hover {
+	color: var(--coral) !important;
+}
+
+header nav > a:last-child {
+	border-color: rgba(23, 107, 85, 0.35) !important;
+	background: rgba(23, 107, 85, 0.08) !important;
+	color: var(--green) !important;
+}
+
+#hero {
+	background: var(--mint) !important;
+	color: var(--ink);
+}
+
+#hero > div:first-child {
+	opacity: 0.16;
+}
+
+#hero > div:first-child > div:first-child {
+	background: #54a77c;
+}
+
+#hero > div:first-child > div:last-child {
+	background: var(--coral);
+}
+
+#hero h1 {
+	color: var(--green) !important;
+	font-family: Georgia, "Times New Roman", serif;
+	font-weight: 700;
+}
+
+#hero h2,
+#hero h3,
+#hero p {
+	color: var(--ink) !important;
+}
+
+#hero h2 span {
+	color: var(--green) !important;
+}
+
+#hero > div > div > div:first-child > span {
+	border-color: rgba(23, 107, 85, 0.3);
+	background: rgba(255, 255, 255, 0.45);
+	color: var(--green);
+}
+
+#hero a[href="#projects"] {
+	background: var(--coral);
+	color: white;
+	box-shadow: 0 8px 22px rgba(240, 120, 86, 0.22);
+}
+
+#hero a[href="#projects"]:hover {
+	background: #d85d3e;
+}
+
+#hero a[href="#contact"] {
+	border-color: rgba(23, 43, 39, 0.25);
+	background: rgba(255, 255, 255, 0.32);
+	color: var(--ink);
+}
+
+#hero img {
+	box-shadow: 0 24px 60px rgba(23, 107, 85, 0.2);
+}
+
+#about,
+#projects {
+	background: var(--paper) !important;
+	color: var(--ink) !important;
+}
+
+#skills {
+	background: #e8efe8 !important;
+	color: var(--ink) !important;
+}
+
+#about h3,
+#skills h2,
+#projects h2,
+#projects h3 {
+	color: var(--ink) !important;
+}
+
+#about p,
+#skills p,
+#projects p {
+	color: var(--muted) !important;
+}
+
+#about > div > div:first-child > p,
+#skills > div > div:first-child > p,
+#projects > div > div:first-child > p,
+#contact > div > p:first-child {
+	color: var(--green) !important;
+}
+
+#about .grid > div:last-child > div,
+#skills .grid > div,
+#projects .grid > div {
+	border-color: var(--line) !important;
+	border-radius: 0.75rem;
+	background: rgba(255, 255, 255, 0.78) !important;
+	box-shadow: 0 10px 30px rgba(23, 43, 39, 0.045);
+}
+
+#skills .grid > div h3 {
+	color: var(--green) !important;
+}
+
+#skills .grid > div span {
+	border-color: rgba(23, 107, 85, 0.2) !important;
+	background: rgba(23, 107, 85, 0.07) !important;
+	color: var(--green) !important;
+}
+
+#projects .grid > div > div:first-child {
+	position: relative;
+	isolation: isolate;
+	background: linear-gradient(135deg, #a9d9bd, #176b55) !important;
+}
+
+#projects .grid > div:nth-child(2) > div:first-child {
+	background: linear-gradient(135deg, #f8c5a4, #f07856) !important;
+}
+
+#projects .grid > div:nth-child(3) > div:first-child {
+	background: linear-gradient(135deg, #d4dfaa, #709555) !important;
+}
+
+#projects .grid > div > div:first-child::after {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background-image: radial-gradient(
+		rgba(255, 255, 255, 0.35) 1px,
+		transparent 1px
+	);
+	background-size: 14px 14px;
+	content: "";
+}
+
+#projects .grid > div > div:nth-child(2) span {
+	border-color: rgba(23, 107, 85, 0.18) !important;
+	background: rgba(23, 107, 85, 0.07) !important;
+	color: var(--green) !important;
+}
+
+#contact {
+	background: #173d34 !important;
+}
+
+#contact h2,
+#contact p:not(:first-child) {
+	color: #f6f7f1 !important;
+}
+
+#contact a:first-of-type {
+	background: var(--coral);
+	color: white;
+}
+
+#contact a:last-of-type {
+	border-color: rgba(255, 255, 255, 0.35);
+	color: white;
+}
+
+#about .grid > div:last-child > div,
+#skills .grid > div,
+#projects .grid > div {
+	transition:
+		transform 220ms ease,
+		box-shadow 220ms ease;
+}
+
+#about .grid > div:last-child > div:hover,
+#skills .grid > div:hover,
+#projects .grid > div:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 18px 38px rgba(23, 43, 39, 0.1);
+}
+
+body.js-ready .reveal {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity 650ms ease,
+		transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+body.js-ready .reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#hero img {
+	animation: portrait-float 6s ease-in-out infinite;
+}
+
+@keyframes portrait-float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }
