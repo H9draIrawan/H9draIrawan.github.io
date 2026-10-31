@@ -26,15 +26,33 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	color: var(--ink-black);
-	background-color: var(--brick-ember);
 }
 
-#header {
-	background-color: var(--orange);
-	font-family: press-start-2P;
+/* Styling Tambahan di File CSS Anda */
+.font-pixel {
+	font-family: "press-start-2P", monospace;
 }
 
-a:hover {
-	color: var(--night-bordeaux);
+/* Warna latar belakang dari CSS Variables */
+.bg-ink-black {
+	background-color: var(--ink-black);
+}
+.bg-night-bordeaux {
+	background-color: var(--night-bordeaux);
+}
+
+/* Warna border */
+.border-black-cherry {
+	border-color: var(--black-cherry);
+}
+.border-amber-flame {
+	border-color: var(--amber-flame);
+}
+
+/* Warna teks */
+.text-amber-flame {
+	color: var(--amber-flame);
+}
+.text-deep-saffron {
+	color: var(--deep-saffron);
 }

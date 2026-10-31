@@ -1,26 +1,42 @@
-document.body.classList.add("js-ready");
+const btn = document.getElementById("hamburger-btn");
+const menu = document.getElementById("mobile-menu");
+const mobileLinks = document.querySelectorAll(".mobile-link");
 
-const revealTargets = document.querySelectorAll(
-	"#about > div, #skills > div, #projects > div, #contact > div",
-);
+// 1. Toggle Mobile Menu & Animasi Silang Icon
+btn.addEventListener("click", () => {
+	btn.classList.toggle("active");
+	menu.classList.toggle("hidden");
+});
 
-if ("IntersectionObserver" in window) {
-	const revealObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add("is-visible");
-					observer.unobserve(entry.target);
-				}
-			});
-		},
-		{ threshold: 0.12 },
-	);
-
-	revealTargets.forEach((target) => {
-		target.classList.add("reveal");
-		revealObserver.observe(target);
+// Tutup menu saat salah satu link diklik
+mobileLinks.forEach((link) => {
+	link.addEventListener("click", () => {
+		btn.classList.remove("active");
+		menu.classList.add("hidden");
 	});
-} else {
-	revealTargets.forEach((target) => target.classList.add("is-visible"));
+});
+
+// 2. Helper Reusable Efek Tilt 3D (Miring saat kursor di atas elemen)
+function applyTilt(element, maxRotate = 15, scaleVal = 1.03) {
+	element.addEventListener("mousemove", (e) => {
+		const rect = element.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+
+		const centerX = rect.width / 2;
+		const centerY = rect.height / 2;
+
+		const rotateX = ((y - centerY) / centerY) * -maxRotate;
+		const rotateY = ((x - centerX) / centerX) * maxRotate;
+
+		element.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scaleVal})`;
+	});
+
+	element.addEventListener("mouseleave", () => {
+		element.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+	});
 }
+
+// Terapkan efek kemiringan (tilt) pada tombol hamburger dan dropdown menu
+applyTilt(btn, 20, 1.05);
+applyTilt(menu, 8, 1.02);
